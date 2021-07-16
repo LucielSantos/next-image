@@ -8,9 +8,10 @@ const Home: React.FC = () => {
     <Container>
       <div>
         <Head title="Home page" />
-
         <h1>Next.js Image optimization</h1>
+        <br />
         <p>Click the links bellow to see differences.</p>
+        <p>Open devtools in network tab.</p>
 
         <nav>
           <ul>
