@@ -1,39 +1,69 @@
-import { useCallback } from 'react';
+import Link from 'next/link';
 
-import ReactLogo from '../assets/reactLogo.svg';
-
+import { Head } from 'components/Commons';
 import { Container } from 'styles/pages/Home';
-import { Typography, Head } from 'components/Commons';
-import { homeConstants } from 'constants/home';
-
-import { useHome } from 'hooks/pages/useHome';
 
 const Home: React.FC = () => {
-  const { count, addCount } = useHome();
-
-  const onClickLogo = useCallback(() => {
-    addCount();
-  }, [addCount]);
-
   return (
     <Container>
-      <Head title="Home page" />
+      <div>
+        <Head title="Home page" />
 
-      <ReactLogo
-        height="10rem"
-        width="10rem"
-        style={{ transform: `rotate(${20 * count}deg)`, cursor: 'pointer', userSelect: 'none' }}
-        onClick={onClickLogo}
-      />
-      <sub>
-        Click on logo to rotate
-        <br />
-        (the count is on Redux state, see on Redux DevTools)
-      </sub>
+        <h1>Next.js Image optimization</h1>
+        <p>Click the links bellow to see differences.</p>
 
-      <h1>{homeConstants.title}</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link href="/common">
+                <a>Common - tag img</a>
+              </Link>
+            </li>
 
-      <Typography>A React JS + Next.js structure made by Luciel Santos</Typography>
+            <li>
+              <Link href="/fixed">
+                <a>Next.js - fixed layout</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/intrinsic">
+                <a>Next.js - intrinsic layout</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/responsive">
+                <a>Next.js - responsive layout</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/fill">
+                <a>Next.js - fill layout</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/styled">
+                <a>Next.js - styled image</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/low-quality">
+                <a>Next.js - low quality image</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/priority">
+                <a>Next.js - priority</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </Container>
   );
 };
